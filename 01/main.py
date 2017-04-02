@@ -11,7 +11,7 @@ import cv2
 import random
 
 # pixel generators
-FUNÇÕES = [
+FUNCTIONS = [
     lambda x, y, Q: x + y,
     lambda x, y, Q: np.abs(np.sin(x / Q) * 255),
     lambda x, y, Q: ((x / Q) ** 2 + 2 * (y / Q) ** 2) * 255,
@@ -20,7 +20,7 @@ FUNÇÕES = [
 
 def generate_image(dimension, func_index, Q):
     new_image = np.empty((dimension, dimension), dtype=np.uint8)
-    func = FUNÇÕES[func_index]
+    func = FUNCTIONS[func_index]
     # fill in pixels on the image
     for x in range(dimension):
         for y in range(dimension):
@@ -44,3 +44,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
