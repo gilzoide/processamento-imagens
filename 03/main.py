@@ -16,7 +16,7 @@ def NFS(s):
 
 def loPass(c, Ffft, Gfft):
     T = c * np.argmax(np.absolute(Gfft))
-    return np.array([a if a < T else 0 for a in Ffft])
+    return np.array([a if i < T else 0 for i, a in enumerate(Ffft)])
 
 def main():
     # 1 - Input reading
