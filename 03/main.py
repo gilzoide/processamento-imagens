@@ -12,7 +12,7 @@ from scipy import signal
 from scipy.fftpack import fft, ifft
 
 def NFS(s):
-    return np.absolute(s) / (2 * len(s))
+    return np.absolute(s) / (2.0 * len(s))
 
 def loPass(c, Ffft, Gfft):
     T = c * np.argmax(np.absolute(Gfft))
@@ -48,8 +48,8 @@ def main():
         plt.show()
     # 7 - Low pass filter
     filteredFfft = loPass(c, Ffft, Gfft)
-    # 8 - IFFT(filteredF) TODO: consertar o resultado (que tá complexo)
-    filteredF = ifft(filteredFfft)
+    # 8 - IFFT(filteredF)
+    filteredF = np.absolute(ifft(filteredFfft))
     # (Show flag == True) 9 - Plot F, filteredF
     if show:
         fig = plt.figure()
